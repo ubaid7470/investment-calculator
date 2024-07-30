@@ -2,6 +2,7 @@ import { useState } from "react";
 import ResultTable from "./Components/ComputedDetails/ResultTable";
 import Header from "./Components/Header/Header";
 import InvestmentForm from "./Components/InputInvestments/InvestmentForm";
+import CustomModal from "./Components/UI/Modal";
 
 function App() {
   const [calculatedData, setCalculatedData] = useState("");
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <div>
+      <CustomModal />
       <Header />
       <InvestmentForm InvestmentCalculations={calculateHandler} />
       {checkAvailablity === true ? (
@@ -41,7 +43,9 @@ function App() {
           initialInvestment={initialInvestment}
         />
       ) : (
-        <p style={{ textAlign: "center" }}>Sorry, No Result Found.</p>
+        <p style={{ textAlign: "center" }}>
+          Add Values and Press Calculate to Generate Result.
+        </p>
       )}
     </div>
   );
